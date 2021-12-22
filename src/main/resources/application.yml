@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    #url: jdbc:mysql://localhost:3306/redis?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+     #host.docker.internal, localhost
+    url: jdbc:mysql://localhost:3306/my?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # 数据库没有表时自动构建，
+    database: mysql # 指定数据库类型
+    generate-ddl: true # 自动生成
+    show-sql: true # 现实sql到控制台
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  redis:
+    host: redis.8zab09.clustercfg.use2.cache.amazonaws.com
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+  mail:
+    host: smtp.gmail.com
+    username: datajg666@gmail.com
+    password: guoguo841268 #Gmail user-pass
+    protocol: smtp
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.port: 465
+    properties.mail.display.sendmail: Javen
+    properties.mail.display.sendname: Spring Boot Guide Email
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    from: datajg666@gmail.com
+    default-encoding: utf-8
+#https端口号.
+server:
+  port: 8080
+  # https port=443
+  #ssl:
+  #    key-store: classpath:keystore.p12
+  #    key-store-password: guoguo841268
+  #    key-store-type: PKCS12
+  #    key-alias: tomcat#
+
